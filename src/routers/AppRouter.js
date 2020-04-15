@@ -1,22 +1,26 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
 import Header from "../components/Header";
 import ProfileForm from "../components/ProfileForm";
-import AddGuestForm from "../components/AddGuestForm";
-import AddRestaurant from "../components/AddRestaurantDashboard";
-import PickYourRestaurant from "../components/PickYourRestaurant";
+import AddGuest from "../components/AddGuestPage";
+import RestaurantDashboard from "../components/Dashboard";
+import AddRestaurant from "../components/AddRestaurantPage";
+import EditGuestPage from "../components/EditGuestPage";
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
-      <Header title="Random Restaurant" />
-      <Switch>
-        <Route path="/" component={ProfileForm} exact={true} />
-        <Route path="/guests" component={AddGuestForm} />
-        <Route path="/pickrestaurant" component={PickYourRestaurant} />
-        <Route path="/dashboard" component={AddRestaurant} />
-      </Switch>
-    </div>
+    <HashRouter basename="/">
+      <div>
+        <Header title="Random Restaurant" />
+        <Switch>
+          <Route path="/" component={ProfileForm} exact={true} />
+          <Route path="/guests" component={AddGuest} />
+          <Route path="/edit/:id" component={EditGuestPage} />
+          <Route path="/pickrestaurant" component={AddRestaurant} />
+          <Route path="/dashboard" component={RestaurantDashboard} />
+        </Switch>
+      </div>
+    </HashRouter>
   </BrowserRouter>
 );
 

@@ -15,3 +15,10 @@ export const removeGuest = ({ id } = {}) => ({
   type: "REMOVE_GUEST",
   id,
 });
+
+//EDIT_GUEST
+export const editGuest = (id, updates) => ({
+  type: "EDIT_GUEST",
+  id,
+  updates,
+});

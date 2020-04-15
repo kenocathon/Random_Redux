@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const GuestListItem = ({ guestName, restaurantName }) => {
+const GuestListItem = ({ id, guestName, restaurantName }) => {
   return (
     <div className="options container">
-      <p className="option">
-        {restaurantName}{" "}
-        <span className="restaurant-caption">({guestName})</span>
-      </p>
+      <Link to={`/edit/${id}`}>
+        <p className="option">
+          {restaurantName} ({guestName})
+        </p>
+      </Link>
     </div>
   );
 };
