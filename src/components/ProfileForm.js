@@ -11,9 +11,10 @@ import {
 const ProfileForm = (props) => (
   <form
     className="container"
-    onSubmit={() => {
+    onSubmit={(e) => {
+      e.preventDefault()
       props.dispatch(formSubmitted(true));
-      props.history.push("/dashboard");
+      props.history.push("/pickrestaurant");
     }}
   >
     <fieldset>
@@ -63,6 +64,7 @@ const ProfileForm = (props) => (
           value={props.profile.favoriteRestaurant}
           required
           onChange={(e) => {
+            console.log("dispatching")
             props.dispatch(addFavoriteRestaurant(e.target.value));
           }}
         />
@@ -74,7 +76,9 @@ const ProfileForm = (props) => (
   </form>
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => (
+  
+  {
   profile: state.profile,
 });
 

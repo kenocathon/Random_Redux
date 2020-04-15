@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import ProfileForm from "../components/ProfileForm";
 import AddGuestForm from "../components/AddGuestForm";
 import AddRestaurant from "../components/AddRestaurantDashboard";
+import PickYourRestaurant from "../components/PickYourRestaurant";
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const AppRouter = () => (
       <Switch>
         <Route path="/" component={ProfileForm} exact={true} />
         <Route path="/guests" component={AddGuestForm} />
+        <Route path="/pickrestaurant" component={PickYourRestaurant} />
         <Route path="/dashboard" component={AddRestaurant} />
       </Switch>
     </div>

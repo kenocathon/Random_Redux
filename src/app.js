@@ -4,11 +4,20 @@ import { Provider } from "react-redux";
 import configureStore from "./store/configurestore";
 import AppRouter from "./routers/AppRouter";
 import { addRestaurant } from "./actions/restaurant";
-import { addGuest } from "./actions/guests";
+import { showFavorite } from "./actions/filters";
+
 
 const store = configureStore();
 
 const state = store.getState();
+
+
+
+
+
+
+
+
 
 const jsx = (
   <Provider store={store}>

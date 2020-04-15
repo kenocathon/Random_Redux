@@ -1,5 +1,6 @@
 import React from "react";
 import RestaurantList from "./RestaurantList";
+import GuestList from "./GuestList";
 import { addRestaurant } from "../actions/restaurant";
 import { connect } from "react-redux";
 
@@ -17,42 +18,17 @@ const AddRestaurant = (props) => {
     const restaurantsAdded = props.restaurant.length;
     return restaurantsAllowed - restaurantsAdded;
   }
-  const viewRestaurants = () => {
-    let addedRestaurants = props.restaurant.map(
-      (restaurant) => restaurant.restaurantName
-    );
-    let guestRestaurants = props.guests.map(
-      (restaurant) => `${restaurant.restaurantName} (${restaurant.guestName})`
-    );
-    const favRestaurant = props.profile.favoriteRestaurant
-      ? `${props.profile.favoriteRestaurant} (Favorite)`
-      : null;
-
-    let allRestaurants = [
-      ...addedRestaurants,
-      ...guestRestaurants,
-      favRestaurant,
-    ];
-    return allRestaurants;
-  };
+  
 
   return (
     <main className="container">
-      <div className="formboxcolumn">
-        <h1>Random Picker</h1>
-        <h2>You can add {restaurantsAllowed()} restaurants</h2>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        {restaurantsAllowed() > 0 && (
-          <div className="formboxcolumn">
-            <label>Enter a restaurant to add</label>
-            <input type="text" name="restaurant" />
-            <button>Add</button>
-          </div>
-        )}
-      </form>
-      <div>{<RestaurantList restaurantList={viewRestaurants()} />}</div>
+      <h1>Random Restaurant Picker</h1>
+      <h2>Your putting your life in the hands of a machine</h2>
+      <h3>Your Pick Was</h3>
+      <RestaurantList />
+      <h3>Your Guests Picked</h3>
+      <GuestList />
+      <button className="important-btn">Pick Random Restaurant</button>
     </main>
   );
 };

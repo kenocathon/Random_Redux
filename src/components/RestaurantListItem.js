@@ -4,7 +4,8 @@ const RestaurantListItem = (props) => {
   return (
     props.restaurant != null && (
       <div className="options container">
-        <p className="option">{props.restaurant}</p>
+        <p className="option">{props.restaurant} ()</p>
+        <button>Edit</button>
       </div>
     )
   );

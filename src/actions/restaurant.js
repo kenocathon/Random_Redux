@@ -1,12 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 
 //ADD_RESTAURANT
-export const addRestaurant = (restaurantName = "") => ({
+export const addRestaurant = (restaurantName = "") => (
+  {
   type: "ADD_RESTAURANT",
-  restaurant: {
-    id: uuidv4(),
-    restaurantName,
-  },
+  restaurantName,
 });
 
 //REMOVE_RESTAURANT

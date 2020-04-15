@@ -8,12 +8,7 @@ export default (state = filterReducerDefaultState, action) => {
     case "SHOW_FAVORITE":
       return {
         ...state,
-        showFavorite: !action.showFavorite,
-      };
-    case "NUMBER_OF_GUESTS":
-      return {
-        ...state,
-        numberOfGuests: action.numberOfGuests,
+        showFavorite: action.showFavorite,
       };
     default:
       return state;
