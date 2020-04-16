@@ -2,6 +2,7 @@ import React from "react";
 import RestaurantList from "./RestaurantList";
 import { addRestaurant } from "../actions/restaurant";
 import GuestList from "./GuestList";
+import AddGuest from "./AddGuest";
 import { connect } from "react-redux";
 
 const RestaurantDashboard = (props) => {
@@ -23,6 +24,7 @@ const RestaurantDashboard = (props) => {
     <main className="container">
       <h1>Random Restaurant Picker</h1>
       <h2>Your putting your life in the hands of a machine</h2>
+      <AddGuest />
       <RestaurantList />
       <GuestList />
     </main>

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 const RestaurantList = (props) => {
   return (
-    <div>
+    <div className="container">
       <h1>Your Pick Was:</h1>
       <RestaurantListItem
         restaurant={

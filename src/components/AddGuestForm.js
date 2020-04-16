@@ -1,8 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-import { addGuest } from "../actions/guests";
 
-class AddGuests extends React.Component {
+class AddGuestForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,4 +68,4 @@ class AddGuests extends React.Component {
   }
 }
 
-export default AddGuests;
+export default AddGuestForm;

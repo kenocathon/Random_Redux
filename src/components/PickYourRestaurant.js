@@ -72,7 +72,7 @@ class PickYourRestaurant extends React.Component {
             </div>
           )}
           <div className="formboxcolumn">
-            <button>Invite Guests</button>
+            <button>Submit</button>
           </div>
         </fieldset>
       </form>

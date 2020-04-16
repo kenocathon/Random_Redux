@@ -8,7 +8,7 @@ const AddRestaurantPage = (props) => {
     <PickYourRestaurant
       onSubmit={({ restaurantName }) => {
         props.dispatch(addRestaurant(restaurantName));
-        props.history.push("/guests");
+        props.history.push("/dashboard");
       }}
     />
   );
