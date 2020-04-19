@@ -1,5 +1,5 @@
 {
-  "homepage": "https://kenocathon.github.io/Random_Redux/"
+  "homepage": "https://kenocathon.github.io/Random_Redux/",
   "name": "random_restaurant",
   "version": "1.0.0",
   "description": "",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "predeploy": "npm run build:prod",
-    "deploy": "gh-pages -d build:prod",
+    "deploy": "gh-pages -d build",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
