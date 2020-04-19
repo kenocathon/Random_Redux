@@ -8,7 +8,7 @@ module.exports = (env) => {
   return {
     entry: "./src/app.js",
     output: {
-      path: path.join(__dirname, "public"),
+      path: path.join(__dirname, "build"),
       filename: "bundle.js",
     },
     module: {
@@ -29,7 +29,7 @@ module.exports = (env) => {
     plugins: [CSSExtract],
     devtool: isProduction ? "source-map" : "cheap-module-eval-source-map",
     devServer: {
-      contentBase: path.join(__dirname, "public/"),
+      contentBase: path.join(__dirname, "build/"),
       historyApiFallback: true,
     },
   };
