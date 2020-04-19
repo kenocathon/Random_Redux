@@ -1,14 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const GuestListItem = ({ id, guestName, restaurantName }) => {
+const GuestListItem = ({ id, guestName, restaurantName }, props) => {
+  function handleRemove(id) {
+    props.dispatch(removeGuest({ id }));
+  }
   return (
-    <div className="options">
-      <Link to={`/edit/${id}`}>
-        <p className="option" style={{ marginLeft: "-1.2em" }}>
-          {restaurantName} ({guestName})
-        </p>
-      </Link>
+    <div className="list">
+      <p className="list__item">
+        {restaurantName} ({guestName})
+      </p>
+      <div>
+        <Link to={`/edit/${id}`}>
+          <button className="button button--link">Edit</button>
+        </Link>
+      </div>
     </div>
   );
 };

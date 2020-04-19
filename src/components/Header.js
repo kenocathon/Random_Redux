@@ -3,35 +3,33 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Header = (props) => (
-  <nav>
-    <header>
-      <div className="branding">
-        <h1> {props.title}</h1>
+  <section>
+    <header className="header">
+      <div className="container">
+        <h1 className="header__title"> {props.title}</h1>
+        <h2 className="header__subtitle">{props.subtitle}</h2>
       </div>
     </header>
-    {props.profile.isSubmitted ? (
-      <ul>
-        <Link to="/">
-          <li className="header-link">Profile</li>
-        </Link>
-        <Link to="/pickrestaurant">
-          <li className="header-link">Pick Restaurant</li>
-        </Link>
-        <Link to="/guests">
-          <li className="header-link">Add Guests</li>
-        </Link>
-        <Link to="dashboard">
-          <li className="header-link"> Random Picker</li>
-        </Link>
-      </ul>
-    ) : (
-      <ul>
-        <Link to="/">
-          <li className="header-link">Profile</li>
-        </Link>
-      </ul>
-    )}
-  </nav>
+    <nav>
+      {props.profile.isSubmitted ? (
+        <ul>
+          <Link className="link" to="/">
+            <li className="nav-link">Profile</li>
+          </Link>
+
+          <Link className="link" to="/dashboard">
+            <li className="nav-link"> Random Picker</li>
+          </Link>
+        </ul>
+      ) : (
+        <ul>
+          <Link className="link" to="/">
+            <li className="nav-link">Profile</li>
+          </Link>
+        </ul>
+      )}
+    </nav>
+  </section>
 );
 
 const mapStateToProps = (state) => ({

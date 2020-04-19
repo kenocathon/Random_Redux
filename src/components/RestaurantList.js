@@ -4,16 +4,12 @@ import { connect } from "react-redux";
 
 const RestaurantList = (props) => {
   return (
-    <div className="container">
-      <h1>Your Pick Was:</h1>
-      <RestaurantListItem
-        restaurant={
-          props.restaurant.restaurantName
-            ? props.restaurant.restaurantName
-            : props.profile.favoriteRestaurant
-        }
-      />
-    </div>
+    <section className="widget">
+      <div className="widget-header">
+        <h3 className="widget-title">Your Choice</h3>
+      </div>
+      <RestaurantListItem restaurant={props.restaurant.restaurantName} />
+    </section>
   );
 };
 

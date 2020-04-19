@@ -1,11 +1,11 @@
 import React from "react";
 import AddGuestForm from "./AddGuestForm";
-import { editGuest } from "../actions/guests";
+import { editGuest, removeGuest } from "../actions/guests";
 import { connect } from "react-redux";
 
 const EditGuestPage = (props) => {
   return (
-    <div>
+    <div className="container">
       <AddGuestForm
         guests={props.guests}
         onSubmit={(guest) => {
@@ -13,6 +13,15 @@ const EditGuestPage = (props) => {
           props.history.push("/dashboard");
         }}
       />
+      <button
+        className="button button--remove"
+        onClick={() => {
+          props.dispatch(removeGuest({ id: props.guests.id }));
+          props.history.push("/dashboard");
+        }}
+      >
+        Remove
+      </button>
     </div>
   );
 };

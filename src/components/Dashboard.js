@@ -1,41 +1,62 @@
 import React from "react";
 import RestaurantList from "./RestaurantList";
-import { addRestaurant } from "../actions/restaurant";
 import GuestList from "./GuestList";
-import AddGuest from "./AddGuest";
+import OptionModal from "./OptionModal";
 import { connect } from "react-redux";
 
-const RestaurantDashboard = (props) => {
-  function handleSubmit(e) {
-    e.preventDefault();
-    const restaurant = e.target.elements.restaurant.value;
-    props.dispatch(addRestaurant(restaurant));
-    e.target.elements.restaurant.value = "";
+class RestaurantDashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      randomSelection: "",
+    };
   }
 
-  function restaurantsAllowed() {
-    let restaurantsAllowed = 4;
+  handleModal = () => {
+    this.setState(() => ({
+      randomSelection: "",
+    }));
+  };
 
-    const restaurantsAdded = props.restaurant.length;
-    return restaurantsAllowed - restaurantsAdded;
+  handleRandomPick = () => {
+    const guestRestaurants = this.props.guests.map(
+      (restaurant) => restaurant.restaurantName
+    );
+    const options = [...guestRestaurants, this.props.restaurant.restaurantName];
+
+    const randomNum = Math.floor(Math.random() * options.length);
+    const selection = options[randomNum];
+    this.setState(() => ({ randomSelection: selection }));
+
+    console.log(this.state.randomSelection);
+  };
+
+  handleOptions = () => {};
+
+  render() {
+    return (
+      <main className="container">
+        <button
+          className="big-button"
+          onClick={this.handleRandomPick}
+          disabled={this.props.guests.length > 0 ? false : true}
+        >
+          Pick Random
+        </button>
+        <RestaurantList />
+        <GuestList />
+        <OptionModal
+          handleModal={this.handleModal}
+          selection={this.state.randomSelection}
+        />
+      </main>
+    );
   }
-
-  return (
-    <main className="container">
-      <h1>Random Restaurant Picker</h1>
-      <h2>Your putting your life in the hands of a machine</h2>
-      <AddGuest />
-      <RestaurantList />
-      <GuestList />
-    </main>
-  );
-};
+}
 
 const mapStateToProps = (state) => ({
   restaurant: state.restaurants,
   guests: state.guests,
-  profile: state.profile,
-  filter: state.filter,
 });
 
 export default connect(mapStateToProps)(RestaurantDashboard);

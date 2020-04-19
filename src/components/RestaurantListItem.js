@@ -1,15 +1,18 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 const RestaurantListItem = (props) => {
   return (
-    props.restaurant != null && (
-      <div className="options">
-        <p className="option" style={{ marginLeft: "-1.2em" }}>
-          {props.restaurant}{" "}
-        </p>
-      </div>
-    )
+    <div className="list">
+      <p className="list__item">{props.restaurant}</p>
+      <button
+        className="button button--link"
+        onClick={() => props.history.push("/pickrestaurant")}
+      >
+        Edit
+      </button>
+    </div>
   );
 };
 
-export default RestaurantListItem;
+export default withRouter(RestaurantListItem);

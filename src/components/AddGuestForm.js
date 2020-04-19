@@ -34,7 +34,7 @@ class AddGuestForm extends React.Component {
           <fieldset>
             <legend>Add A Guest</legend>
 
-            <div className="formboxcolumn">
+            <div className="form-column">
               <label htmlFor="guestName">Guest's Name</label>
               <input
                 name="guestName"
@@ -42,10 +42,11 @@ class AddGuestForm extends React.Component {
                 required
                 value={this.state.guestName}
                 onChange={this.handleGuestName}
+                autoFocus
               />
             </div>
 
-            <div className="formboxcolumn">
+            <div className="form-column">
               <label htmlFor="guestsRestaurant">
                 Guest's Restaurant Choice
               </label>
@@ -57,12 +58,11 @@ class AddGuestForm extends React.Component {
                 onChange={this.handleGuestRestaurant}
               />
             </div>
-            <div className="formboxcolumn">
-              <button className="add-btn">Submit</button>
+            <div className="form-column">
+              <button className="button">Submit</button>
             </div>
           </fieldset>
         </form>
-        )}
       </div>
     );
   }

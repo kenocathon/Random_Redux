@@ -16,6 +16,11 @@ export const removeGuest = ({ id } = {}) => ({
   id,
 });
 
+//REMOVE_ALL_GUESTS
+export const removeAllGuests = () => ({
+  type: "REMOVE_ALL_GUESTS",
+});
+
 //EDIT_GUEST
 export const editGuest = (id, updates) => ({
   type: "EDIT_GUEST",

@@ -4,7 +4,7 @@
 
 .ReactModalPortal .ReactModal__Overlay {
   align-items: center;
-  @include flexbox-display;
+  display: flex;
   justify-content: center;
   transition: opacity 200ms ease-in-out;
 }
@@ -18,16 +18,10 @@
 }
 
 .modal {
-  background: black;
-  color: $neon-green;
-  max-width: 30 rem;
+  background: $light-blue;
+  color: white;
+  max-width: 40rem;
   outline: none;
-  padding: $xl-size;
+  padding: $l-size;
   text-align: center;
-  button {
-    background-color: $secondary-color;
-    color: white;
-    margin: $m-size;
-    cursor: pointer;
-  }
 }

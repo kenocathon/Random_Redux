@@ -4,75 +4,78 @@ import { showFavorite } from "../actions/filters";
 import { addRestaurant } from "../actions/restaurant";
 
 class PickYourRestaurant extends React.Component {
-  state = {
-    restaurantName: "",
-    error: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      restaurantName: "",
+      checked: props.filter.showFavorite ? props.filter.showFavorite : false,
+      error: "",
+    };
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
-    if (
-      this.props.filter.showFavorite ||
-      this.props.restaurant.restaurantName
-    ) {
-      this.props.onSubmit({
-        restaurantName: this.state.restaurantName,
-      });
-    } else {
-      const error = "Either use favorite restaurant or add a restaurant";
+    if (!this.state.checked && !this.state.restaurantName) {
+      const error = "Please add a restaurant or use your favorite restaurant";
       this.setState(() => ({ error }));
+    } else {
+      if (this.state.checked) {
+        this.props.dispatch(
+          addRestaurant(this.props.profile.favoriteRestaurant)
+        );
+      } else if (!this.state.checked) {
+        this.props.dispatch(addRestaurant(this.state.restaurantName));
+      }
+      this.props.dispatch(showFavorite(this.state.checked));
+      this.props.history.push("/dashboard");
     }
   };
-  changeCheckbox = (e) => {
-    if (this.props.filter.showFavorite) {
-      this.setState(() => ({
-        restaurantName: this.props.filter.favoriteRestaurant,
-      }));
-    }
-    this.props.dispatch(showFavorite(!this.props.filter.showFavorite));
+
+  handleCheckbox = () => {
+    this.setState(() => ({
+      checked: !this.state.checked,
+      error: "",
+    }));
   };
 
   changeTextInput = (e) => {
     const restaurantName = e.target.value;
-    this.props.dispatch(addRestaurant(restaurantName));
-    this.setState(() => ({ restaurantName, error: "" }));
+    this.setState(() => ({
+      restaurantName,
+      error: "",
+    }));
   };
 
   render() {
-    var filter = this.props.filter;
-    var restaurant = this.props.restaurant;
-
     return (
       <form className="container" onSubmit={this.onSubmit}>
         <fieldset>
           <legend>Pick A Restaurant</legend>
           {this.state.error && <p className="error">{this.state.error}</p>}
-          <div className="formboxrow">
+          <div className="container">
             <input
-              id="favorite"
               type="checkbox"
-              value={filter.showFavorite}
-              checked={filter.showFavorite}
-              onChange={this.changeCheckbox}
+              checked={this.state.checked}
+              onChange={this.handleCheckbox}
             />
             <label htmlFor="favorite">
               Use Your Favorite Restaurant{" "}
               {`(${this.props.profile.favoriteRestaurant})`}
             </label>
           </div>
-          {!filter.showFavorite && (
-            <div className="formboxcolumn">
-              <label htmlFor="restaurant">Restaurant</label>
+          {!this.state.checked && (
+            <div className="form-column">
+              <label htmlFor="restaurant">Choose A Restaurant</label>
               <input
-                id="restaurant"
                 type="text"
                 onChange={this.changeTextInput}
-                value={restaurant.restaurantName}
+                value={this.state.restaurantName}
+                autoFocus
               />
             </div>
           )}
-          <div className="formboxcolumn">
-            <button>Submit</button>
+          <div className="form-column">
+            <button className="button">Submit</button>
           </div>
         </fieldset>
       </form>

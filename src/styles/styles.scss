@@ -1,8 +1,9 @@
-@import "./base/theme";
-@import "./base/mixins";
+@import "./base/setting";
 @import "./base/base";
-@import "./components/form.scss";
-@import "./components/grouping";
+@import "./components/button";
+@import "./components/container";
+@import "./components/_display_widget";
+@import "./components/form";
 @import "./components/header";
+@import "./components/list.scss";
 @import "./components/modal";
-@import "./components/app";

@@ -1,0 +1,43 @@
+input {
+  background: $dark-blue;
+  border: none;
+  border-bottom: 0.3rem solid darken($dark-blue, 10%);
+  color: $off-white;
+  flex-grow: 1;
+  padding: $s-size;
+}
+
+fieldset {
+  background-color: $light-blue;
+  border-color: white;
+  border-radius: 0.5rem;
+  margin-bottom: $l-size;
+  padding: 3rem;
+}
+
+legend {
+  background-color: lighten($off-black, 5%);
+  border: 3px solid $off-black;
+  border-radius: 0.5rem;
+  color: $off-white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 80%;
+}
+
+label {
+  margin: $s-size;
+  color: $off-white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 2rem;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: $s-size;
+}

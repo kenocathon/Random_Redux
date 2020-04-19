@@ -1,0 +1,47 @@
+// Random Pick button
+.big-button {
+  background-color: $purple;
+  border: none;
+  border-bottom: 0.6rem solid darken($purple, 10%);
+  color: $blue;
+  font-weight: bold;
+  font-size: $l-size;
+  margin-bottom: $xl-size;
+  padding: 2.4rem;
+  width: 100%;
+}
+
+.big-button:disabled {
+  opacity: 0.5;
+}
+
+//Normal Buttons
+.button {
+  background-color: $purple;
+  border: none;
+  border-bottom: 0.3rem solid darken($purple, 10%);
+  color: $blue;
+  font-weight: 700;
+  padding: $m-size 0;
+  margin-top: $s-size;
+  &:hover {
+    color: $off-white;
+  }
+}
+
+.button--link {
+  background: none;
+  border: none;
+  color: $off-white;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.button--remove {
+  background-color: red;
+  border-bottom: 1px solid darken(red, 10%);
+  margin: 0 auto;
+  width: 20rem;
+  position: relative;
+  left: 20rem;
+}

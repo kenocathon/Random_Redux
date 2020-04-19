@@ -1,26 +1,24 @@
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
-  line-height: 1.6;
 }
+
 body {
-  background-color: black;
+  background-color: $dark-blue;
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
-  color: white;
-}
-
-p {
-  font-size: $l-size;
-  margin: 1rem;
-}
-
-a {
-  margin: 1rem;
-  text-decoration: none;
-  color: white;
 }
 
 button {
-  padding: 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.error {
+  color: red;
+  font-size: $m-size;
+  margin: 2rem auto;
+  text-align: center;
 }
