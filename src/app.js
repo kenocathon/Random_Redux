@@ -9,8 +9,6 @@ import "./styles/styles.scss";
 
 const store = configureStore();
 
-store.dispatch(addFavoriteRestaurant("Waffle House"));
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
